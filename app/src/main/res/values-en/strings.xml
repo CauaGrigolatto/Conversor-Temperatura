@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Temperature Converter</string>
+    <string name="temperature">Temperature:</string>
+    <string name="hint_temperature_input">Enter the temperature</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="convert">Convert</string>
+    <string name="conversion_click_hint">Click the button to convert</string>
+    <string name="convert_from">Convert from</string>
+    <string name="to">to</string>
+    <string name="messsage_conversion_error">Could not perform the temperature conversion with the provided data.</string>
+
+    <string-array name="temperature_scales">
+        <item>@string/celsius</item>
+        <item>@string/fahrenheit</item>
+        <item>@string/kelvin</item>
+    </string-array>
+</resources>
