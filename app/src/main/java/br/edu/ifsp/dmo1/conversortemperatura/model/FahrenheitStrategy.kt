@@ -12,6 +12,10 @@ class FahrenheitStrategy : TemperatureConverter {
         return convertToCelsius(t) + 273.15
     }
 
+    override fun convertToRankine(t: Double): Double {
+        return  t + 459.67
+    }
+
     override fun getScale(): String {
         return "ºF"
     }

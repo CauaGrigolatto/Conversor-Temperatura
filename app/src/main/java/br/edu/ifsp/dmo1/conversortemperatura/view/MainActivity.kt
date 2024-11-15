@@ -15,6 +15,7 @@ import br.edu.ifsp.dmo1.conversortemperatura.databinding.ActivityMainBinding
 import br.edu.ifsp.dmo1.conversortemperatura.model.CelsiusStrategy
 import br.edu.ifsp.dmo1.conversortemperatura.model.FahrenheitStrategy
 import br.edu.ifsp.dmo1.conversortemperatura.model.KelvinStrategy
+import br.edu.ifsp.dmo1.conversortemperatura.model.RankineStrategy
 import br.edu.ifsp.dmo1.conversortemperatura.model.TemperatureConverter
 
 class MainActivity : AppCompatActivity(), OnClickListener {
@@ -68,25 +69,26 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun convertAndDisplay() {
-        var fromScale: String = getFromScale()
-        var toScale: String = getToScale()
-        var value: Double = getInputtedTemperature()
+        try {
+            var fromScale: String = getFromScale()
+            var toScale: String = getToScale()
 
-        this.converter = getConverter(fromScale)
+            var value: Double = getInputtedTemperature()
 
-        if (converter != null) {
-            var result = convert(value, toScale, converter)
-            var formatScale = getFormatScale(toScale)
+            this.converter = getConverter(fromScale)
+
+            var result: Double = convert(value, toScale, converter)
+            var formatScale: String = getFormatScale(toScale)
+
             displayResult(result, formatScale)
         }
-        else {
+        catch(e: IllegalArgumentException) {
             Toast.makeText(
                 this,
                 R.string.messsage_conversion_error,
                 Toast.LENGTH_SHORT
-            )
+            ).show()
         }
-
     }
 
     private fun getFromScale(): String {
@@ -111,7 +113,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             TemperatureConverter.CELSIUS -> CelsiusStrategy()
             TemperatureConverter.FAHRENHEIT -> FahrenheitStrategy()
             TemperatureConverter.KELVIN -> KelvinStrategy()
-            else -> null!!
+            TemperatureConverter.RANKINE -> RankineStrategy()
+            else -> throw IllegalArgumentException()
         }
     }
 
@@ -120,7 +123,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             TemperatureConverter.CELSIUS -> converter.convertToCelsius(value)
             TemperatureConverter.FAHRENHEIT -> converter.convertToFahrenheit(value)
             TemperatureConverter.KELVIN -> converter.convertToKelvin(value)
-            else -> null!!
+            TemperatureConverter.RANKINE -> converter.convertToRankine(value)
+            else -> throw IllegalArgumentException()
         }
     }
 
@@ -129,7 +133,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             TemperatureConverter.CELSIUS -> CelsiusStrategy().getScale()
             TemperatureConverter.FAHRENHEIT -> FahrenheitStrategy().getScale()
             TemperatureConverter.KELVIN -> KelvinStrategy().getScale()
-            else -> null!!
+            TemperatureConverter.RANKINE -> RankineStrategy().getScale()
+            else -> throw IllegalArgumentException()
         }
     }
 

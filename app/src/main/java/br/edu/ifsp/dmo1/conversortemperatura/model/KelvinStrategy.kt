@@ -12,6 +12,10 @@ class KelvinStrategy : TemperatureConverter {
         return t
     }
 
+    override fun convertToRankine(t: Double): Double {
+        return t * 9/5
+    }
+
     override fun getScale(): String {
         return "ºK"
     }
