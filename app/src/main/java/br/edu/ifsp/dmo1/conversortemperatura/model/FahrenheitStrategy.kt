@@ -1,6 +1,6 @@
 package br.edu.ifsp.dmo1.conversortemperatura.model
 
-class FahrenheitStrategy : TemperatureConverter {
+object FahrenheitStrategy : TemperatureConverter {
     override fun convertToCelsius(t: Double): Double {
         return (t - 32) * 5/9
     }

@@ -110,10 +110,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     private fun getConverter(fromScale: String): TemperatureConverter {
         return when (fromScale) {
-            TemperatureConverter.CELSIUS -> CelsiusStrategy()
-            TemperatureConverter.FAHRENHEIT -> FahrenheitStrategy()
-            TemperatureConverter.KELVIN -> KelvinStrategy()
-            TemperatureConverter.RANKINE -> RankineStrategy()
+            TemperatureConverter.CELSIUS -> CelsiusStrategy
+            TemperatureConverter.FAHRENHEIT -> FahrenheitStrategy
+            TemperatureConverter.KELVIN -> KelvinStrategy
+            TemperatureConverter.RANKINE -> RankineStrategy
             else -> throw IllegalArgumentException()
         }
     }
@@ -130,10 +130,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     private fun getFormatScale(scale: String): String {
         return when (scale) {
-            TemperatureConverter.CELSIUS -> CelsiusStrategy().getScale()
-            TemperatureConverter.FAHRENHEIT -> FahrenheitStrategy().getScale()
-            TemperatureConverter.KELVIN -> KelvinStrategy().getScale()
-            TemperatureConverter.RANKINE -> RankineStrategy().getScale()
+            TemperatureConverter.CELSIUS -> CelsiusStrategy.getScale()
+            TemperatureConverter.FAHRENHEIT -> FahrenheitStrategy.getScale()
+            TemperatureConverter.KELVIN -> KelvinStrategy.getScale()
+            TemperatureConverter.RANKINE -> RankineStrategy.getScale()
             else -> throw IllegalArgumentException()
         }
     }

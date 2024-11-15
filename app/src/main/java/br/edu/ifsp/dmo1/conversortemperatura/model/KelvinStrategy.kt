@@ -1,6 +1,6 @@
 package br.edu.ifsp.dmo1.conversortemperatura.model
 
-class KelvinStrategy : TemperatureConverter {
+object KelvinStrategy : TemperatureConverter {
     override fun convertToCelsius(t: Double): Double {
         return t - 273.15
     }

@@ -1,6 +1,6 @@
 package br.edu.ifsp.dmo1.conversortemperatura.model
 
-class RankineStrategy : TemperatureConverter {
+object RankineStrategy : TemperatureConverter {
     override fun convertToCelsius(t: Double): Double {
         return t * 5/9 - 273.15
     }
