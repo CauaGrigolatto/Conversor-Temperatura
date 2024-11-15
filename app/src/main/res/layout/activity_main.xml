@@ -2,6 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:startColor="#FFBB86FC"
+    android:endColor="#FF6200EE"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/temperature"
-        android:textSize="20sp"
+        android:textColor="@color/dark_purple"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/from_temperature_spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     
@@ -22,6 +26,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_temperature_input"
+        android:inputType="numberDecimal"
+        android:textColor="@color/dark_purple"
         android:textAlignment="center"
         android:layout_marginStart="10dp"
         android:textSize="20sp"
@@ -33,16 +39,18 @@
         android:id="@+id/convert_from_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/dark_purple"
         android:text="@string/convert_from"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/result_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/temperature_title" />
 
     <Spinner
-        android:id="@+id/from_temperature"
+        android:id="@+id/from_temperature_spinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:textColor="@color/dark_purple"
         app:layout_constraintStart_toEndOf="@+id/convert_from_text_view"
         app:layout_constraintBaseline_toBaselineOf="@id/convert_from_text_view"
         android:layout_marginStart="5dp"/>
@@ -52,31 +60,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/to"
-        android:textSize="20sp"
+        android:textSize="24sp"
+        android:textColor="@color/dark_purple"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convert_from_text_view" />
 
     <Spinner
-        android:id="@+id/to_temperature"
+        android:id="@+id/to_temperature_spinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:textColor="@color/dark_purple"
         android:layout_marginStart="5dp"
         app:layout_constraintBaseline_toBaselineOf="@id/convert_to_text_view"
         app:layout_constraintStart_toEndOf="@+id/convert_to_text_view"/>
-    
+
     <TextView
         android:id="@+id/result_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/conversion_click_hint"
-        android:textColor="@color/output"
-        android:textSize="20sp"
+        android:textColor="@color/dark_purple"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/convert_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/from_temperature" />
+        app:layout_constraintTop_toBottomOf="@+id/from_temperature_spinner" />
 
     <Button
         android:id="@+id/convert_button"
@@ -85,8 +95,7 @@
         android:text="@string/convert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
